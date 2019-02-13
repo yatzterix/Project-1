@@ -1,0 +1,79 @@
+.popup {
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba($color-black, .8);
+    z-index: 9999;
+
+    opacity:0;
+    visibility:hidden;
+    transition:all .3s;
+
+    &:target{
+        opacity:1;
+        visibility:visible;
+    }
+    &_close{
+        &:link,
+        &:visited{
+            color:$color-primary;
+            position:absolute;
+            top:2.5rem;
+            right:2.5rem;
+            text-decoration:none;
+            display:inline-block;
+        }
+        :hover{
+            color:$color-primary;
+        }
+    }
+
+
+    &_content {
+        @include absCenter;
+        width: 75%;
+        height: 50rem;
+        background-color: $color-white;
+        box-shadow: 0 2rem 4rem rgba($color-black, .2);
+        border-radius: 3px;
+        display: table;
+        overflow: hidden;
+    }
+
+    &_left {
+        width: 33.333333%;
+        display: table-cell;
+    }
+
+    &_right {
+        width: 66.666667%;
+        display: table-cell;
+        vertical-align: middle;
+        padding: 3rem 5rem;
+    }
+
+    &_img {
+        display: block;
+        width: 85.5%;
+    }
+
+    &_text {
+        font-style: 1.4rem;
+        margin-bottom: 4rem;
+
+        -moz-column-count: 2;
+        -moz-column-gap: 4rem; //1em = 14px
+        -ms-column-rule: 1px solid $color-dark-grey-3;
+
+        column-count: 2;
+        column-gap: 4rem; //1em = 14px
+        column-rule: 1px solid $color-dark-grey-3;
+
+        -moz-hyphens: auto;
+        -ms-hyphens: auto;
+        -webkit-hyphens: auto;
+        hyphens: auto;
+    }
+}
